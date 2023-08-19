@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Upcoming Birthdays</title>
+</head>
+
+<body>
+    <h1>Upcoming Birthdays</h1>
+    <p style="color:rgb(150, 150, 150);">(this month and next month - generated {{date}})</p>
+    {% for person in birth %}
+    {# Create a new section for each month #}
+    {% if loop.changed(person.month) %}
+    <h2 style="color:rgb(7, 188, 201);">{{months[person.month]}}</h2>
+    {% endif %}
+    <p>{{person.day}} {{person.name}}
+        {# Don't calculate age if birth year is set to earlier than 1911. Earlier years may be used as dummy values where birth year is not known. #}
+        {% if person.year > 1910 %} <span style="color:rgb(13, 122, 129);">
+            {% if person.month >= today.month %}
+            ({{today.year - person.year}})
+            {# if the birth month is earlier than the current month, then it refers to next year, so one year should be added to age. #}
+            {% else %} ({{today.year - person.year + 1}})
+            {% endif %}</span>
+        {% endif %}
+    </p>
+    {% endfor %}
+    <br>
+    <hr>
+    <a href="{{link}}">{{linktext}}</a>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Birthdays</title>
+</head>
+
+<body>
+    <h1>Birthdays</h1>
+    <p style="color:rgb(150, 150, 150);">(generated {{date}})</p>
+    {% for person in birth %}
+    {# Create a new section for each month #}
+    {% if loop.changed(person.month) %}
+    <h2 style="color:rgb(7, 188, 201);">{{months[person.month]}}</h2>
+    {% endif %}
+    <p>{{person.day}} {{person.name}}
+        {# Don't display birth year if it is set to earlier than 1911. Earlier years may be used as dummy values where birth year is not known. #}
+        {% if person.year > 1910 %} <span style="color:rgb(13, 122, 129);">({{person.year}})</span> {% endif %} </p>
+    {% endfor %}
+    <br>
+    <hr>
+    <a href="{{link}}">{{linktext}}</a>
+</body>
+
+</html>
