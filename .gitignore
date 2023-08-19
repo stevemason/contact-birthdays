@@ -1,0 +1,10 @@
+.python-version
+credentials.json
+token.json
+/.vscode/
+/.scannerwork/
+sonar-project.properties
+*.pdf
+/*.html
+birthdays.html
+output_config.py
