@@ -18,4 +18,8 @@ Sample output files may be found in the 'sample output' project folder.
 Usage:
 
 - install requirements with pip
+- configure Google API as per above-mentioned link
+- download credentials file from Google Cloud
 - python birthdays.py
+- (on first use) log into relevant google account, and grant read-only access to contacts
+- ensure that generated token.json file is well protected, as this will grant ongoing access to google contacts
