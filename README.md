@@ -14,3 +14,8 @@ The information is retrieved using Google's People API. Before this can be used,
 An 'output_config.py' file is required, providing specific details about output file names and locations. An example file has been provided, but this file should be renamed and amended as required.
 
 Sample output files may be found in the 'sample output' project folder.
+
+Usage:
+
+- install requirements with pip
+- python birthdays.py
